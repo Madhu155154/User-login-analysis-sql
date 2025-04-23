@@ -51,8 +51,60 @@ The dataset contains **user and login records**, including login timestamps, ses
 |---------|---------|---------------------|------------|----------------|
 | 1       | Delhi   | 2024-01-10 07:45:00 | 1011       | 86             |
 
+
+
+Steps (if recreating):
+1. Create the tables using the script
+2. Insert records for `users` and `logins`
+3. Run the analysis queries individually
+
 ---
+
+### 📌 Key Insights
+
+- Users inactive for the past 5 months were identified using both `GROUP BY` and `NOT IN` logic
+- Session data grouped by quarter shows **engagement trends** and **percentage change** in usage
+- Some users logged in only during specific periods like Jan 2024, skipping others like Nov 2023
+- Users with the highest daily session scores were tracked using `ROW_NUMBER()`
+- Power users were detected who logged in **every single day** since their first login
+- Several dates were found with **no logins**, indicating possible downtime or inactive usage
+
+---
+
+### 📁 Folder Structure
+
+| File Name                               | Description                                                       |
+|----------------------------------------|-------------------------------------------------------------------|
+| `create_tables_and_sample_data.sql`    | Script for creating tables and inserting user/login data          |
+| `question_01_inactive_users.sql`       | Users who didn’t log in during the past 5 months                  |
+| `question_02_quarterly_sessions.sql`   | Quarterly session and user counts                                 |
+| `question_03_jan_not_nov_users.sql`    | Users active in Jan 2024 but not in Nov 2023                      |
+| `question_04_quarterly_session_change.sql` | Quarterly session count + % change                             |
+| `question_05_top_daily_scorers.sql`    | Users with highest session scores for each day                    |
+| `question_06_consistent_daily_users.sql`| Users who logged in every day since their first login             |
+| `question_07_no_login_dates.sql`       | Dates with no login activity                                      |
+| `README.md`                            | Project documentation                                             |
+
+---
+
+### ✅ How to Use
+
+1. Clone or download this repository
+2. Open scripts in SQL Server Management Studio (SSMS) or Azure Data Studio
+3. Run `create_tables_and_sample_data.sql` first
+4. Run each `question_0X_*.sql` to view results
+
+
 
 ### 📥 Data Import Process
 
 Data was inserted manually through SQL script into SQL Server. The table creation and sample data are available in the file:
+
+### 👨‍💻 Author
+
+**Madhu K**  
+Business Analyst | SQL Developer | Power BI Enthusiast  
+📬 [LinkedIn](#)  
+🌐 [Portfolio Website](#) *(optional)*
+
+
